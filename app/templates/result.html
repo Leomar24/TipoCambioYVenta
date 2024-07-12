@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultado de Consulta</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Resultado de Consulta</h1>
+        {% if error %}
+            <div class="error">{{ error }}</div>
+        {% else %}
+            <p>Fecha: {{ fecha }}</p>
+            <p>Tipo de Cambio Compra: {{ tipo_cambio_compra }}</p>
+            <p>Tipo de Cambio Venta: {{ tipo_cambio_venta }}</p>
+        {% endif %}
+        <a href="{{ url_for('index') }}">Volver</a>
+    </div>
+</body>
+</html>

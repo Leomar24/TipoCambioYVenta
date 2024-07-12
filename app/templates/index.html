@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Consulta del Tipo de Cambio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+<div class="container">
+    <h1>Consulta del Tipo de Cambio</h1>
+    <form method="POST">
+        <label for="fecha">Seleccione una fecha:</label>
+        <input type="date" id="fecha" name="fecha" required>
+        <button type="submit">Consultar</button>
+    </form>
+    {% if tipo_cambio %}
+    <div class="result">
+        <p>Tipo de Cambio de Compra: {{ tipo_cambio.tipo_cambio_compra }}</p>
+        <p>Tipo de Cambio de Venta: {{ tipo_cambio.tipo_cambio_venta }}</p>
+    </div>
+    {% endif %}
+    {% if error %}
+    <div class="error">
+        <p>Error: {{ error }}</p>
+    </div>
+    {% endif %}
+</div>
+</body>
+</html>
